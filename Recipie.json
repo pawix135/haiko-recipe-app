@@ -1,0 +1,78 @@
+[
+  {
+    "files": [],
+    "thumb": {
+      "nail": ""
+    },
+    "zubreitung": [
+      {
+        "text_step": "This is how it is made",
+        "headline": "Preparation stap 1",
+        "sort": 1
+      },
+      {
+        "text_step": "Next Step",
+        "headline": "Step 2",
+        "sort": 2
+      }
+    ],
+    "kat": [
+      {
+        "name": "soup",
+        "cat_id": "2123-123"
+      }
+    ],
+    "nut": {
+      "salz": "",
+      "eiweiss": "",
+      "eiweiss100": "",
+      "energie100": "",
+      "kohlenhydrate": "",
+      "fettsauren100": "",
+      "salz100": "",
+      "fett": "",
+      "balaststoffe": "",
+      "fettsauren": "",
+      "balaststoffe100": "",
+      "fett100": "",
+      "zucker100": "",
+      "zucker": "",
+      "energie": "",
+      "kohlenhydrate100": ""
+    },
+    "zutaten": [
+      {
+        "headline": true,
+        "menge": 0,
+        "sort": 0,
+        "zutat": "Cake",
+        "einheit": ""
+      },
+      {
+        "headline": false,
+        "menge": 500,
+        "sort": 1,
+        "zutat": "Milk",
+        "einheit": "ml"
+      }
+    ],
+    "infos": {
+      "pieces": 12,
+      "id": "2516830653503-02",
+      "notes": "",
+      "name": "Name of the recipie",
+      "suchtext": "",
+      "pieces_kind": "Pieces"
+    },
+    "tags": [],
+    "info": {
+      "rating": 0,
+      "level": 0,
+      "ruhezeit": 0,
+      "gesammtzeit": 0,
+      "link": "",
+      "zubereitungszeit": 0,
+      "vorbreitungszeit": 0
+    }
+  }
+]
