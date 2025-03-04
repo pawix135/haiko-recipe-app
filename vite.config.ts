@@ -12,6 +12,6 @@ export default defineConfig({
   },
   base: '/heiko-recipe-app/',
   server: {
-    allowedHosts: ['89-75-165-69.dynamic.chello.pl']
+    allowedHosts: []
   }
 })

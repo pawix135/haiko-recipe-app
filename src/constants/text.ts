@@ -20,8 +20,6 @@ export const QR_CODE_DIALOG_TITLE = "Scanne den Code mit einem Gerät, auf dem R
 export const FORM_RESET_BUTTON = "Zurücksetzen"
 export const NUTRITION_BUTTON_TEXT = "Nährwerte erfassen"
 //AllTextFields
-export const TEXTAREA_ZUBEREITUNG_PLACEHOLDER = "Zubereitung"
-export const TEXTAREA_ZUBEREITUNG_LABEL = "Zubereitung"
 export const TEXTAREA_NOTES_PLACEHOLDER = "Notizen"
 export const TEXTAREA_NOTES_LABEL = "Notizen"
 export const INGREDIENTS_LABEL = "Zutaten"
