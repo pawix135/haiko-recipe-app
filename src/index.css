@@ -38,6 +38,7 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --heiko: #285F76;
 }
 
 .dark {
@@ -114,11 +115,23 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+@theme {
+  --color-heiko: var(--heiko);
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply !min-w-full bg-background text-foreground;
+  }
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }  
+  input[type=number] {
+    -moz-appearance: textfield;
   }
 }
