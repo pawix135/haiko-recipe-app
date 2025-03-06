@@ -26,7 +26,7 @@ export const RecipeInfos: React.FC<Props> = () => {
       <div className='flex flex-row space-x-2'>
         {formData.thumb.nail ? (
           <div className="relative size-[150px]">
-            <img src={formData.thumb.nail} alt="Vorschaubild" className="w-[150px] rounded-[5px]" />
+            <img src={"data:image/jpeg;base64," + formData.thumb.nail} alt="Vorschaubild" className="w-[150px] rounded-[5px]" />
             <Button type="button" variant={"destructive"} onClick={removeThumbnail} className="absolute right-0 bottom-0 z-10">
               <Trash />
             </Button>
