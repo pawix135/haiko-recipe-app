@@ -17,19 +17,23 @@ export const RecipeInfos: React.FC<Props> = () => {
 
   let formData = form.watch()
 
+  const removeThumbnail = () => {
+    form.setValue('thumb.nail', '');
+  }
+
   return (
     <div className="flex flex-row space-y-4 h-[150px]">
       <div className='flex flex-row space-x-2'>
-        <Label htmlFor="thumbnail" className='flex flex-col'>
+        <Label htmlFor="thumbnail" className='flex flex-col size-[150px]'>
           {formData.thumb.nail ? (
-            <div className="relative w-[150px] h-auto">
+            <div className="relative">
               <img src={formData.thumb.nail} alt="Vorschaubild" className="w-[150px] rounded-[5px]" />
-              <Button variant={"destructive"} className="absolute right-0 bottom-0">
+              <Button type="button" variant={"destructive"} onClick={removeThumbnail} className="absolute right-0 bottom-0">
                 <Trash />
               </Button>
             </div>
           ) :
-            <div className="border border-red-500 size-[150px] relative grid place-items-center rounded-[5px]">
+            <div className="border border-accent-foregroundt w-full h-[150px] relative grid place-items-center rounded-[5px]">
               <span className="text-center">Click here to choose thumbnail</span>
             </div>
           }
