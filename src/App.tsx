@@ -76,7 +76,7 @@ function App() {
         <form onSubmit={form.handleSubmit(onSubmit)} onChange={onChange} className="space-y-5">
           <RecipeInfos />
           <div className='flex flex-row space-x-2'>
-            <Label htmlFor="thumbnail" className='flex flex-col'>Recipe thumbnail
+            <Label htmlFor="thumbnail" className='flex flex-col'>Vorschaubild
               {formData.thumb.nail && (
                 <img src={formData.thumb.nail} alt="Vorschaubild" className="size-[150px]" />
               )}
