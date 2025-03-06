@@ -34,4 +34,4 @@ export const RECIPES_INFO_PIECES_KIND_PLACEHOLDER = "Personen / Portionen / Lite
 
 //VegField
 export const VEG_FIELD_VEGAN_LABEL = "Vegan"
-export const VEG_FIELD_VEGETARIAN_LABEL = "Vegetarian"
+export const VEG_FIELD_VEGETARIAN_LABEL = "Vegetarisch"
