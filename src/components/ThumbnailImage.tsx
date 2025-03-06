@@ -50,7 +50,7 @@ export const ThumbnailImage: React.FC<Props> = () => {
 
   return (
     <div className="self-end">
-      <Input id="thumbnail" type="file" onChange={handleFileChange} accept="image/jpeg,image/png" />
+      <Input className="hidden" id="thumbnail" type="file" onChange={handleFileChange} accept="image/jpeg,image/png" />
     </div>
   )
 }

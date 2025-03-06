@@ -75,14 +75,6 @@ function App() {
       <FormProvider {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} onChange={onChange} className="space-y-5">
           <RecipeInfos />
-          <div className='flex flex-row space-x-2'>
-            <Label htmlFor="thumbnail" className='flex flex-col'>Vorschaubild
-              {formData.thumb.nail && (
-                <img src={formData.thumb.nail} alt="Vorschaubild" className="size-[150px]" />
-              )}
-            </Label>
-            <ThumbnailImage />
-          </div>
           <VegField />
           <FormItem>
             <FormLabel htmlFor={"add_ingredient"}>{INGREDIENTS_LABEL}</FormLabel>
