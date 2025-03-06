@@ -10,8 +10,4 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  base: '/heiko-recipe-app/',
-  server: {
-    allowedHosts: ['89-75-165-69.dynamic.chello.pl']
-  }
 })
