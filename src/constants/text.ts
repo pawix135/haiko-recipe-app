@@ -6,7 +6,7 @@ export const STEP_TEXTAREA_PLACEHOLDER = "Schritt"
 export const ADD_STEP_BUTTON_TEXT = "Schritt hinzufügen"
 
 //IngredientsFieldArray^
-export const INGREDIENT_CHECKBOX_LABEL = "Überschrift"
+export const INGREDIENT_CHECKBOX_LABEL = "Als Absatz nutzen"
 export const INGREDIENT_INPUT_MENGE_PLACEHOLDER = "Menge"
 export const INGREDIENT_INPUT_EINHEIT_PLACEHOLDER = "Einheit"
 export const INGREDIENT_INPUT_ZUTAT_PLACEHOLDER = "Zutat"

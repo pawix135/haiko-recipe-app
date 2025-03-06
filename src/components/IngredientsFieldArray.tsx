@@ -29,7 +29,7 @@ export const IngredientsFieldArray: React.FC<Props> = () => {
         fields.map((field, index) => (
           <div key={field.id} >
             <div className='flex flex-row gap-2 items-center'>
-              <Label className="flex flex-row w-1/3">
+              <Label className="text-xs flex flex-row w-1/3 ">
                 {INGREDIENT_CHECKBOX_LABEL}
                 <Controller
                   name={`zutaten.${index}.headline`}
