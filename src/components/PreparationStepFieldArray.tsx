@@ -28,7 +28,7 @@ export const PreparationStepFieldArray: React.FC<Props> = () => {
 
   return (
     <>
-      <div className="grid grid-flow-row md:grid-cols-2 lg:grid-cols-3 space-y-2 gap-3">
+      <div className="grid grid-flow-row md:grid-cols-2 lg:grid-cols-2 space-y-2 gap-3">
         {fields.length > 0 && (
           fields.map((field, index) => (
             <div key={field.id} >
