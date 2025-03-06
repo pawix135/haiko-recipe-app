@@ -24,20 +24,20 @@ export const RecipeInfos: React.FC<Props> = () => {
   return (
     <div className="flex flex-row space-y-4 h-[150px]">
       <div className='flex flex-row space-x-2'>
-        <Label htmlFor="thumbnail" className='flex flex-col size-[150px]'>
-          {formData.thumb.nail ? (
-            <div className="relative">
-              <img src={formData.thumb.nail} alt="Vorschaubild" className="w-[150px] rounded-[5px]" />
-              <Button type="button" variant={"destructive"} onClick={removeThumbnail} className="absolute right-0 bottom-0">
-                <Trash />
-              </Button>
-            </div>
-          ) :
+        {formData.thumb.nail ? (
+          <div className="relative size-[150px]">
+            <img src={formData.thumb.nail} alt="Vorschaubild" className="w-[150px] rounded-[5px]" />
+            <Button type="button" variant={"destructive"} onClick={removeThumbnail} className="absolute right-0 bottom-0 z-10">
+              <Trash />
+            </Button>
+          </div>
+        ) :
+          <Label htmlFor="thumbnail" className='flex flex-col size-[150px]'>
             <div className="border border-accent-foregroundt w-full h-[150px] relative grid place-items-center rounded-[5px]">
               <span className="text-center">Click here to choose thumbnail</span>
             </div>
-          }
-        </Label>
+          </Label>
+        }
         <ThumbnailImage />
       </div>
       <div className="w-full h-full space-y-2 flex flex-col justify-between">

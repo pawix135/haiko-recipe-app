@@ -65,9 +65,6 @@ function App() {
   // FIXME: THIS IS A BAD WAY TO CALCULATE THE SIZE OF THE OBJECT, THIS THROWS! DANG!
   const recipeObjectSize = JSON.stringify(formData, null, 0).length;
 
-  console.log(formData.thumb);
-
-
   return (
     <div className='container mx-auto p-2'>
       <FormProvider {...form}>
