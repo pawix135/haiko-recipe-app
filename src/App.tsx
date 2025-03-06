@@ -78,7 +78,7 @@ function App() {
           <div className='flex flex-row space-x-2'>
             <Label htmlFor="thumbnail" className='flex flex-col'>Recipe thumbnail
               {formData.thumb.nail && (
-                <img src={formData.thumb.nail} alt="thumbnail" className="size-[150px]" />
+                <img src={formData.thumb.nail} alt="Vorschaubild" className="size-[150px]" />
               )}
             </Label>
             <ThumbnailImage />

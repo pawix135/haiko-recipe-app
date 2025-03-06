@@ -5,7 +5,7 @@ export const STEP_HEADLINE_NEXT_DEFAULT_TEXT = "Schritt"
 export const STEP_TEXTAREA_PLACEHOLDER = "Schritt"
 export const ADD_STEP_BUTTON_TEXT = "Schritt hinzufügen"
 
-//IngredientsFieldArray
+//IngredientsFieldArray^
 export const INGREDIENT_CHECKBOX_LABEL = "Überschrift"
 export const INGREDIENT_INPUT_MENGE_PLACEHOLDER = "Menge"
 export const INGREDIENT_INPUT_EINHEIT_PLACEHOLDER = "Einheit"
@@ -13,7 +13,7 @@ export const INGREDIENT_INPUT_ZUTAT_PLACEHOLDER = "Zutat"
 export const INGREDIENT_ADD_BUTTON_TEXT = "Zutat hinzufügen"
 
 //App
-export const DOWNLOAD_RECIPE_BUTTON_TEXT = "Rezept laden"
+export const DOWNLOAD_RECIPE_BUTTON_TEXT = "Rezept runterladen"
 export const OPEN_IN_APP_BUTTON_TEXT = "In der Rezepte6 App öffnen"
 export const QR_CODE_BUTTON_TEXT = "QR Code anzeigen"
 export const QR_CODE_DIALOG_TITLE = "Scanne den Code mit einem Gerät, auf dem Rezepte6 installiert ist."
