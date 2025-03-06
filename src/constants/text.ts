@@ -19,6 +19,7 @@ export const QR_CODE_BUTTON_TEXT = "QR Code anzeigen"
 export const QR_CODE_DIALOG_TITLE = "Scanne den Code mit einem Gerät, auf dem Rezepte6 installiert ist."
 export const FORM_RESET_BUTTON = "Zurücksetzen"
 export const NUTRITION_BUTTON_TEXT = "Nährwerte erfassen"
+
 //AllTextFields
 export const TEXTAREA_NOTES_PLACEHOLDER = "Notizen"
 export const TEXTAREA_NOTES_LABEL = "Notizen"
@@ -31,6 +32,7 @@ export const RECIPE_INFOS_NAME_PLACEHOLDER = "Bitte Rezeptenamen eingeben"
 export const RECIPE_INFOS_AMOUNT_LABEL = "Reichweite des Rezeptes"
 export const RECIPE_INFOS_AMOUNT_PLACEHOLDER = "Menge"
 export const RECIPES_INFO_PIECES_KIND_PLACEHOLDER = "Personen / Portionen / Liter / usw."
+export const RECIPE_THUMBNAIL_CALL_TO_ACTION = "Click here to choose thumbnail"
 
 //VegField
 export const VEG_FIELD_VEGAN_LABEL = "Vegan"

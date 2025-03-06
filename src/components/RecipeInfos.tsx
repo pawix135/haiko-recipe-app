@@ -2,7 +2,7 @@ import { useFormContext } from "react-hook-form"
 import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "./ui/form"
 import { Input } from "./ui/input"
 import { Recipe } from "../types/recipe"
-import { RECIPE_INFOS_AMOUNT_LABEL, RECIPE_INFOS_AMOUNT_PLACEHOLDER, RECIPE_INFOS_NAME_LABEL, RECIPE_INFOS_NAME_PLACEHOLDER, RECIPES_INFO_PIECES_KIND_PLACEHOLDER } from "../constants/text"
+import { RECIPE_INFOS_AMOUNT_LABEL, RECIPE_INFOS_AMOUNT_PLACEHOLDER, RECIPE_INFOS_NAME_LABEL, RECIPE_INFOS_NAME_PLACEHOLDER, RECIPE_THUMBNAIL_CALL_TO_ACTION, RECIPES_INFO_PIECES_KIND_PLACEHOLDER } from "../constants/text"
 import { Label } from "./ui/label"
 import { ThumbnailImage } from "./ThumbnailImage"
 import { Trash } from "lucide-react"
@@ -34,7 +34,7 @@ export const RecipeInfos: React.FC<Props> = () => {
         ) :
           <Label htmlFor="thumbnail" className='flex flex-col size-[150px]'>
             <div className="border border-accent-foregroundt w-full h-[150px] relative grid place-items-center rounded-[5px]">
-              <span className="text-center">Click here to choose thumbnail</span>
+              <span className="text-center">{RECIPE_THUMBNAIL_CALL_TO_ACTION}</span>
             </div>
           </Label>
         }
