@@ -36,7 +36,7 @@ export const ThumbnailImage: React.FC<Props> = () => {
         const ctx = canvas.getContext('2d');
         if (ctx) {
           ctx.drawImage(img, 0, 0, 150, 150);
-          const base64Image = canvas.toDataURL('image/jpeg');
+          const base64Image = canvas.toDataURL("image/jpeg");
           form.setValue('thumb.nail', base64Image);
         }
       };
