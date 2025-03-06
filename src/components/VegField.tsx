@@ -1,14 +1,15 @@
 import { Recipe } from "@/types/recipe"
-import { Control, Controller } from "react-hook-form"
+import { Controller, useFormContext } from "react-hook-form"
 import { Label } from './ui/label'
 import { Checkbox } from "./ui/checkbox"
 import { VEG_FIELD_VEGAN_LABEL, VEG_FIELD_VEGETARIAN_LABEL } from "@/constants/text"
 
 interface Props {
-  control: Control<Recipe>
 }
 
-export const VegField: React.FC<Props> = ({ control }) => {
+export const VegField: React.FC<Props> = () => {
+
+  const { control } = useFormContext<Recipe>();
 
   return (
     <Controller

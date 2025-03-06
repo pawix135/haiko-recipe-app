@@ -1,15 +1,16 @@
-import { Control, UseFormRegister } from "react-hook-form"
+import { useFormContext } from "react-hook-form"
 import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "./ui/form"
 import { Input } from "./ui/input"
 import { Recipe } from "../types/recipe"
 import { RECIPE_INFOS_AMOUNT_LABEL, RECIPE_INFOS_AMOUNT_PLACEHOLDER, RECIPE_INFOS_NAME_LABEL, RECIPE_INFOS_NAME_PLACEHOLDER, RECIPES_INFO_PIECES_KIND_PLACEHOLDER } from "../constants/text"
 
 interface Props {
-  control: Control<Recipe>
-  register: UseFormRegister<Recipe>
 }
 
-export const RecipeInfos: React.FC<Props> = ({ control, register }) => {
+export const RecipeInfos: React.FC<Props> = () => {
+
+  const { control, register } = useFormContext<Recipe>();
+
   return (
     <>
       <FormField

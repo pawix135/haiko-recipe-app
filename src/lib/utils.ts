@@ -16,11 +16,11 @@ export const generateId = (): string => {
 export const createOpenInAppLink = (urlEncodedRecipe: string): string => `mrv://${urlEncodedRecipe}`;
 
 export const encodeRecipeData = (values: Recipe) => {
-  return encodeURIComponent(JSON.stringify([values], null, 0))
+  return encodeURIComponent(prepareRecipeToSave(values));
 }
 
 export const saveRecipeAsFile = (values: Recipe) => {
-  const data = JSON.stringify([values], null, 0);
+  const data = prepareRecipeToSave(values);
   const blob = new Blob([data], { type: 'application/json' });
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
@@ -31,4 +31,12 @@ export const saveRecipeAsFile = (values: Recipe) => {
 
 export const openRecipeInApp = (values: Recipe) => {
   window.open(createOpenInAppLink(encodeRecipeData(values)), '_blank');
+}
+
+export const prepareRecipeToSave = (values: Recipe): string => {
+  try {
+    return JSON.stringify([values], null, 0);
+  } catch (error) {
+    throw new Error("Error while preparing recipe to save");
+  }
 }

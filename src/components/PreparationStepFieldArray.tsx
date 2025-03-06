@@ -1,5 +1,5 @@
 import { Recipe } from "@/types/recipe"
-import { Control, useFieldArray, UseFormRegister, useWatch } from "react-hook-form"
+import { useFieldArray, useFormContext, useWatch } from "react-hook-form"
 import { Input } from "./ui/input"
 import { Plus, Trash } from "lucide-react"
 import { Button } from "./ui/button"
@@ -7,11 +7,11 @@ import { Textarea } from "./ui/textarea"
 import { ADD_STEP_BUTTON_TEXT, STEP_HEADLINE_FIRST_DEFAULT_TEXT, STEP_HEADLINE_INPUT_PLACEHOLDER, STEP_HEADLINE_NEXT_DEFAULT_TEXT, STEP_TEXTAREA_PLACEHOLDER } from "@/constants/text"
 
 interface Props {
-  control: Control<Recipe>
-  register: UseFormRegister<Recipe>
 }
 
-export const PreparationStepFieldArray: React.FC<Props> = ({ control, register }) => {
+export const PreparationStepFieldArray: React.FC<Props> = () => {
+
+  const { control, register } = useFormContext<Recipe>();
   const { fields, remove, append } = useFieldArray({
     control,
     name: "zubreitung"
@@ -42,7 +42,7 @@ export const PreparationStepFieldArray: React.FC<Props> = ({ control, register }
             </div>
           )))}
       </div>
-      <Button variant={"heiko"} className="w-1/3" type="button" onClick={() => {
+      <Button id="add_step" variant={"heiko"} className="w-1/3" type="button" onClick={() => {
         let text_step = "";
         if (zubreitungWatch.length <= 0) text_step = STEP_HEADLINE_FIRST_DEFAULT_TEXT
         else text_step = `${STEP_HEADLINE_NEXT_DEFAULT_TEXT} ${(zubreitungWatch.length + 1)}`

@@ -1,5 +1,5 @@
 import { Recipe } from "@/types/recipe"
-import { Control, Controller, useFieldArray, UseFormRegister, useWatch } from "react-hook-form"
+import { Controller, useFieldArray, useFormContext, useWatch } from "react-hook-form"
 import { Input } from "./ui/input"
 import { Plus, Trash } from "lucide-react"
 import { Button } from "./ui/button"
@@ -8,11 +8,11 @@ import { Label } from "./ui/label"
 import { INGREDIENT_ADD_BUTTON_TEXT, INGREDIENT_CHECKBOX_LABEL, INGREDIENT_INPUT_EINHEIT_PLACEHOLDER, INGREDIENT_INPUT_MENGE_PLACEHOLDER, INGREDIENT_INPUT_ZUTAT_PLACEHOLDER } from "@/constants/text"
 
 interface Props {
-  control: Control<Recipe>
-  register: UseFormRegister<Recipe>
 }
 
-export const IngredientsFieldArray: React.FC<Props> = ({ control, register }) => {
+export const IngredientsFieldArray: React.FC<Props> = () => {
+
+  const { control, register } = useFormContext<Recipe>();
   const { fields, remove, append } = useFieldArray({
     control,
     name: "zutaten"
@@ -36,6 +36,7 @@ export const IngredientsFieldArray: React.FC<Props> = ({ control, register }) =>
                   control={control}
                   render={({ field }) => (
                     <Checkbox
+                      name={`zutaten.${index}.headline`}
                       checked={field.value}
                       onCheckedChange={field.onChange}
                     />
@@ -43,12 +44,12 @@ export const IngredientsFieldArray: React.FC<Props> = ({ control, register }) =>
                 />
               </Label>
               {watchedFields[index] && !watchedFields[index].headline && (
-                <Input className="w-1/6" type="number" placeholder={INGREDIENT_INPUT_MENGE_PLACEHOLDER} {...register(`zutaten.${index}.menge`, { valueAsNumber: true })} />
+                <Input id={`zutaten.${index}.menge`} step={0.1} className="w-1/6" type="number" placeholder={INGREDIENT_INPUT_MENGE_PLACEHOLDER} {...register(`zutaten.${index}.menge`, { valueAsNumber: true })} />
               )}
               {watchedFields[index] && !watchedFields[index].headline && (
-                <Input className="w-1/4" placeholder={INGREDIENT_INPUT_EINHEIT_PLACEHOLDER} {...register(`zutaten.${index}.einheit`)} />
+                <Input id={`zutaten.${index}.einheit`} className="w-1/4" placeholder={INGREDIENT_INPUT_EINHEIT_PLACEHOLDER} {...register(`zutaten.${index}.einheit`)} />
               )}
-              <Input placeholder={watchedFields[index]?.headline ? "Titel des Absatzes" : INGREDIENT_INPUT_ZUTAT_PLACEHOLDER} {...register(`zutaten.${index}.zutat`)} />
+              <Input id={`zutaten.${index}.zutat`} placeholder={watchedFields[index]?.headline ? "Titel des Absatzes" : INGREDIENT_INPUT_ZUTAT_PLACEHOLDER} {...register(`zutaten.${index}.zutat`)} />
               <Button variant={"destructive"} type="button" onClick={() => {
                 remove(index)
               }}>
@@ -57,7 +58,7 @@ export const IngredientsFieldArray: React.FC<Props> = ({ control, register }) =>
             </div>
           </div>
         )))}
-      <Button variant={"heiko"} type="button" onClick={() => {
+      <Button id="add_ingredient" variant={"heiko"} type="button" onClick={() => {
         append({ einheit: "", menge: 0, headline: false, sort: watchedFields.length + 1, zutat: "" }, { shouldFocus: false })
       }}><Plus />{INGREDIENT_ADD_BUTTON_TEXT}</Button>
     </div>
