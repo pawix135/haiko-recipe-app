@@ -5,7 +5,6 @@ import { Recipe } from "../types/recipe"
 import { RECIPE_INFOS_AMOUNT_LABEL, RECIPE_INFOS_AMOUNT_PLACEHOLDER, RECIPE_INFOS_NAME_LABEL, RECIPE_INFOS_NAME_PLACEHOLDER, RECIPES_INFO_PIECES_KIND_PLACEHOLDER } from "../constants/text"
 import { Label } from "./ui/label"
 import { ThumbnailImage } from "./ThumbnailImage"
-import { VegField } from "./VegField"
 import { Trash } from "lucide-react"
 import { Button } from "./ui/button"
 
@@ -37,7 +36,7 @@ export const RecipeInfos: React.FC<Props> = () => {
         </Label>
         <ThumbnailImage />
       </div>
-      <div className="w-full h-full space-y-2 flex flex-col justify-around">
+      <div className="w-full h-full space-y-2 flex flex-col justify-between">
         <FormField
           control={control}
           name="infos.name"

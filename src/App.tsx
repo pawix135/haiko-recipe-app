@@ -15,8 +15,6 @@ import { NutritionDialog } from './components/NutritionDialog'
 import { useLocalStorage } from './hooks/useLocalStorage'
 import { RecipeQRCode } from './components/RecipeQRCode'
 import { ImportRecipe } from './components/ImportRecipe'
-import { ThumbnailImage } from './components/ThumbnailImage'
-import { Label } from './components/ui/label'
 
 function App() {
 
