@@ -33,11 +33,14 @@ export const PreparationStepFieldArray: React.FC<Props> = () => {
           fields.map((field, index) => (
             <div key={field.id} >
               <div className='flex flex-col gap-2'>
-                <Input placeholder={STEP_HEADLINE_INPUT_PLACEHOLDER} {...register(`zubreitung.${index}.headline`)} />
+                <div className="flex flex-row space-x-2 w-full">
+                  <Input placeholder={STEP_HEADLINE_INPUT_PLACEHOLDER} {...register(`zubreitung.${index}.headline`)} />
+                  <Button variant={"destructive"} type="button" onClick={() => removeStep(index)}>
+                    <Trash />
+                  </Button>
+                </div>
                 <Textarea placeholder={STEP_TEXTAREA_PLACEHOLDER} {...register(`zubreitung.${index}.text_step`)} />
-                <Button variant={"destructive"} type="button" onClick={() => removeStep(index)}>
-                  <Trash />
-                </Button>
+
               </div>
             </div>
           )))}

@@ -39,6 +39,5 @@ export const VegField: React.FC<Props> = () => {
       )
       }
     />
-
   )
 }

@@ -15,6 +15,7 @@ import { NutritionDialog } from './components/NutritionDialog'
 import { useLocalStorage } from './hooks/useLocalStorage'
 import { RecipeQRCode } from './components/RecipeQRCode'
 import { ImportRecipe } from './components/ImportRecipe'
+import { MoreInformationsFields } from './components/MoreInformationsFields'
 
 function App() {
 
@@ -83,7 +84,10 @@ function App() {
               <PreparationStepFieldArray />
             </FormControl>
           </FormItem>
-          <NutritionDialog />
+          <div className='space-x-2'>
+            <NutritionDialog />
+            <MoreInformationsFields />
+          </div>
           <AllTextFields />
           <div className='flex flex-row flex-wrap space-x-2 space-y-2'>
             <Button variant={"heiko"} type="submit">{DOWNLOAD_RECIPE_BUTTON_TEXT}</Button>
