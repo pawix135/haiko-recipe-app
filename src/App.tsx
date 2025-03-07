@@ -68,9 +68,6 @@ function App() {
 
   return (
     <div className='container mx-auto p-2'>
-      <pre>
-        {JSON.stringify(formData.info, null, 2)}
-      </pre>
       <FormProvider {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} onChange={onChange} className="space-y-5">
           <RecipeInfos />
