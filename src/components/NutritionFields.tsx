@@ -12,9 +12,9 @@ interface Props {
 export const NutritionFields: React.FC<Props> = ({ control, amount, pieces_kind }) => {
 
   return (
-    <div className="flex flex-col gap-5 w-full">
+    <div className="flex flex-col gap-2 w-full">
       <div className="grid grid-cols-4">
-        <p className="col-span-2">Nährwerte</p>
+        <p className="col-span-2 "></p>
         <p>per 100g</p>
         {amount != 0 && pieces_kind != "" && (
 
