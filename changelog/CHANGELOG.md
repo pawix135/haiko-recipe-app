@@ -1,7 +1,7 @@
 
 Further possible functions/Options:
 
-    1.  Pop_over for "Extra Inforamtions":
+ 1.  Pop_over for "Extra Inforamtions" (Like the Nutritions)
 
     Data structure for JSON:
     @NSManaged public var gesammtzeit: Int64
@@ -17,4 +17,8 @@ Further possible functions/Options:
      ruhezeit / vorbereitungszeit / zubereitungszeit are minutes
         Gesamtzeit is the sum of the 3 above
    
+
+2.  Image Galery
+
+3.  Create multiple recipes and queue them to download them together
 
