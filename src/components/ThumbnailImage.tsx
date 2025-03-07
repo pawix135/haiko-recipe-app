@@ -2,13 +2,9 @@ import { useFormContext } from "react-hook-form";
 import { Input } from "./ui/input"
 import { Recipe } from "@/types/recipe";
 
-interface Props {
-
-}
-
 const ACCEPTED_FILE_TYPES = ["jpeg", "png", "jpg"];
 
-export const ThumbnailImage: React.FC<Props> = () => {
+export const ThumbnailImage: React.FC = () => {
 
   const form = useFormContext<Recipe>();
 
@@ -39,11 +35,13 @@ export const ThumbnailImage: React.FC<Props> = () => {
           const base64Image = canvas.toDataURL("image/jpeg").slice(23);
           form.setValue('thumb.nail', base64Image);
         }
+        canvas.remove();
       };
       if (event.target) {
         img.src = event.target.result as string;
       }
     };
+
     reader.readAsDataURL(file);
 
   }

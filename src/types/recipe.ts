@@ -69,13 +69,13 @@ export const RecipeSchema = z.object({
   }),
   tags: z.array(z.unknown()),
   info: z.object({
-    rating: z.number(),
-    level: z.number(),
-    ruhezeit: z.number(),
-    gesammtzeit: z.number(),
+    rating: z.number().min(0),
+    level: z.number().min(0),
+    ruhezeit: z.number().min(0),
+    gesammtzeit: z.number().min(0),
     link: z.string(),
-    zubereitungszeit: z.number(),
-    vorbreitungszeit: z.number(),
+    zubereitungszeit: z.number().min(0),
+    vorbreitungszeit: z.number().min(0),
   })
 })
 

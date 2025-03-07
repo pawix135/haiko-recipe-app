@@ -27,7 +27,7 @@ export const IngredientsFieldArray: React.FC<Props> = () => {
     <div className="space-y-2">
       {fields.length > 0 && (
         fields.map((field, index) => (
-          <div key={field.id} >
+          <div key={field.id}>
             <div className='flex flex-row gap-2 items-center'>
               <Label className="text-xs flex flex-row w-1/3 ">
                 {INGREDIENT_CHECKBOX_LABEL}

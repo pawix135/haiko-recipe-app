@@ -15,6 +15,7 @@ import { NutritionDialog } from './components/NutritionDialog'
 import { useLocalStorage } from './hooks/useLocalStorage'
 import { RecipeQRCode } from './components/RecipeQRCode'
 import { ImportRecipe } from './components/ImportRecipe'
+import { MoreInformationsFields } from './components/MoreInformationsFields'
 
 function App() {
 
@@ -67,6 +68,9 @@ function App() {
 
   return (
     <div className='container mx-auto p-2'>
+      <pre>
+        {JSON.stringify(formData.info, null, 2)}
+      </pre>
       <FormProvider {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} onChange={onChange} className="space-y-5">
           <RecipeInfos />
@@ -83,7 +87,10 @@ function App() {
               <PreparationStepFieldArray />
             </FormControl>
           </FormItem>
-          <NutritionDialog />
+          <div className='space-x-2'>
+            <NutritionDialog />
+            <MoreInformationsFields />
+          </div>
           <AllTextFields />
           <div className='flex flex-row flex-wrap space-x-2 space-y-2'>
             <Button variant={"heiko"} type="submit">{DOWNLOAD_RECIPE_BUTTON_TEXT}</Button>
