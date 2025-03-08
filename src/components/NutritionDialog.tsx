@@ -21,7 +21,7 @@ export const NutritionDialog: React.FC<Props> = () => {
         setShowNutritionDialog(true)
       }}>{NUTRITION_BUTTON_TEXT}</Button>
       <Dialog open={showNutritionDialog} onOpenChange={setShowNutritionDialog}>
-        <DialogContent className='flex flex-col items-center' aria-describedby={undefined}>
+        <DialogContent className='flex flex-col' aria-describedby={undefined}>
           <DialogHeader>
             <DialogTitle>Nährwerttabelle</DialogTitle>
           </DialogHeader>

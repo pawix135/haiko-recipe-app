@@ -44,7 +44,7 @@ export const IngredientsFieldArray: React.FC<Props> = () => {
                 />
               </Label>
               {watchedFields[index] && !watchedFields[index].headline && (
-                <Input id={`zutaten.${index}.menge`} step={0.1} className="w-1/6" type="number" placeholder={INGREDIENT_INPUT_MENGE_PLACEHOLDER} {...register(`zutaten.${index}.menge`, { valueAsNumber: true })} />
+                <Input id={`zutaten.${index}.menge`} step={0.1} className="w-1/7" type="number" placeholder={INGREDIENT_INPUT_MENGE_PLACEHOLDER} {...register(`zutaten.${index}.menge`, { valueAsNumber: true })} />
               )}
               {watchedFields[index] && !watchedFields[index].headline && (
                 <Input id={`zutaten.${index}.einheit`} className="w-1/4" placeholder={INGREDIENT_INPUT_EINHEIT_PLACEHOLDER} {...register(`zutaten.${index}.einheit`)} />
@@ -58,7 +58,7 @@ export const IngredientsFieldArray: React.FC<Props> = () => {
             </div>
           </div>
         )))}
-      <Button id="add_ingredient" variant={"heiko"} type="button" onClick={() => {
+      <Button id="add_ingredient" className="w-1/4"  variant={"heiko"} type="button" onClick={() => {
         append({ einheit: "", menge: 0, headline: false, sort: watchedFields.length + 1, zutat: "" }, { shouldFocus: false })
       }}><Plus />{INGREDIENT_ADD_BUTTON_TEXT}</Button>
     </div>

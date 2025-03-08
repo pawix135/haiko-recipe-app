@@ -29,7 +29,7 @@ export const PREPARATION_STEP_LABEL = "Zubereitungsschritte"
 //RecipeInfos
 export const RECIPE_INFOS_NAME_LABEL = "Rezeptname"
 export const RECIPE_INFOS_NAME_PLACEHOLDER = "Bitte Rezeptenamen eingeben"
-export const RECIPE_INFOS_AMOUNT_LABEL = "Reichweite des Rezeptes"
+export const RECIPE_INFOS_AMOUNT_LABEL = "Rezept für: "
 export const RECIPE_INFOS_AMOUNT_PLACEHOLDER = "Menge"
 export const RECIPES_INFO_PIECES_KIND_PLACEHOLDER = "Personen / Portionen / Liter / usw."
 export const RECIPE_THUMBNAIL_CALL_TO_ACTION = "Klick um ein Vorschaubild hinzuzufügen"

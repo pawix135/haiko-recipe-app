@@ -42,7 +42,7 @@ function App() {
   }
 
   const resetForm = () => {
-    const response = confirm("Are you sure you want to reset the form?");
+    const response = confirm("Sind Sie sicher, dass Sie das Formular zurücksetzen wollen?");
 
     if (response) {
       form.reset(defaultRecipeValues)
@@ -95,9 +95,9 @@ function App() {
             {recipeObjectSize < 1500 && <Button variant={"heiko"} type="button" onClick={() => form.handleSubmit(createQRCode)()}>{QR_CODE_BUTTON_TEXT}</Button>}
             <Button type="button" className='md:ml-auto bg-gray-500' onClick={resetForm}>{FORM_RESET_BUTTON}</Button>
           </div>
-          <ImportRecipe />
+           <ImportRecipe />
         </form>
-      </FormProvider>
+     </FormProvider>
       <RecipeQRCode qrCode={qrCode} setQrCode={setQrCode} />
     </div>
   )

@@ -45,7 +45,7 @@ export const PreparationStepFieldArray: React.FC<Props> = () => {
             </div>
           )))}
       </div>
-      <Button id="add_step" variant={"heiko"} className="w-1/3" type="button" onClick={() => {
+      <Button id="add_step" variant={"heiko"} className="w-1/4" type="button" onClick={() => {
         let text_step = "";
         if (zubreitungWatch.length <= 0) text_step = STEP_HEADLINE_FIRST_DEFAULT_TEXT
         else text_step = `${STEP_HEADLINE_NEXT_DEFAULT_TEXT} ${(zubreitungWatch.length + 1)}`

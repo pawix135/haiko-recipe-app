@@ -34,10 +34,10 @@ export const MoreInformationsFields: React.FC = () => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button type="button" variant={"heiko"}>More information</Button>
+        <Button type="button" variant={"heiko"}>Weitere Infos hinzufügen</Button>
       </DialogTrigger>
       <DialogContent aria-describedby={undefined}>
-        <DialogTitle>Additional information</DialogTitle>
+        <DialogTitle>Weitere Infos</DialogTitle>
         <>
           <div className="flex flex-row justify-between gap-5">
             <Label htmlFor="difficulty">Schwierigkeit</Label>
@@ -47,7 +47,7 @@ export const MoreInformationsFields: React.FC = () => {
               <ToggleGroupItem id="difficulty" value="2">Schwer</ToggleGroupItem>
             </ToggleGroup>
           </div>
-          <div className="flex flex-row justify-between gap-5">
+          <div className="flex flex-row justify-between gap-4">
             <Label htmlFor="rating-1">Bewertung</Label>
             <ToggleGroup type="single" value={String(infoWatch.rating)} onValueChange={handleRatingChange}>
               <ToggleGroupItem id="rating-1" value="1"><Star className={cn("fill-white stroke-gray-500", {
@@ -67,7 +67,7 @@ export const MoreInformationsFields: React.FC = () => {
               })} /></ToggleGroupItem>
             </ToggleGroup>
           </div>
-          <div className="flex flex-col gap-5 ">
+          <div className="flex flex-col gap-1 ">
             <div className="flex flex-row items-center gap-3">
               <Label htmlFor="vorbereitungszeit">Vorbereitungszeit</Label>
               <div className="flex justify-end items-center gap-2 ml-auto">

@@ -35,7 +35,7 @@ export const openRecipeInApp = (values: Recipe) => {
 
 export const prepareRecipeToSave = (values: Recipe): string => {
   try {
-    if (values.thumb.nail.length >= 23) values.thumb.nail = values.thumb.nail.slice(23);
+    if (values.thumb.nail.length >= 23) values.thumb.nail ;
     return JSON.stringify([values], null, 0);
   } catch (error) {
     throw new Error("Error while preparing recipe to save");
