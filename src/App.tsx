@@ -33,16 +33,20 @@ function App() {
 
   const onSubmit = (values: Recipe) => {
     saveRecipeAsFile(values);
-    const logMessage = `created: ${values.infos?.name || "no name"}`;
+    const logMessage = `Download: ${values.infos?.name || "no name"}`;
     logToServer(logMessage);
   }
 
   const openInApp = (values: Recipe) => {
     openRecipeInApp(values);
+    const logMessage = `Opened in App: ${values.infos?.name || "no name"}`;
+    logToServer(logMessage);
   }
 
   const createQRCode = (values: Recipe) => {
     setQrCode(createOpenInAppLink(encodeRecipeData(values)));
+    const logMessage = `Created QR: ${values.infos?.name || "no name"}`;
+    logToServer(logMessage);
   }
 
   const resetForm = () => {
