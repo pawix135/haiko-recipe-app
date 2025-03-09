@@ -2,7 +2,7 @@
 Further possible functions/Options:
 
 
- 1.  Pop_over for "Extra Inforamtions" (Like the Nutritions)
+ 1.  Pop_over for "Extra Inforamtions" (Like the Nutritions): DONE!
 
     Data structure for JSON:
     @NSManaged public var gesammtzeit: Int64
