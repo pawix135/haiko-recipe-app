@@ -2,7 +2,7 @@
 Further possible functions/Options:
 
 
- 1.  Pop_over for "Extra Inforamtions" (Like the Nutritions)
+ 1.  Pop_over for "Extra Inforamtions" (Like the Nutritions): DONE!
 
     Data structure for JSON:
     @NSManaged public var gesammtzeit: Int64
@@ -23,5 +23,4 @@ Further possible functions/Options:
 
 3.  Create multiple recipes and queue them to download them together
 
-4.  Server Log File
-      I would like to know how many mrv are created ?
+4.  Server Log File : DONE!

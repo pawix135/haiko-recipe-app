@@ -19,6 +19,27 @@ export const encodeRecipeData = (values: Recipe) => {
   return encodeURIComponent(prepareRecipeToSave(values));
 }
 
+export async function logToServer(message: string) {
+  try {
+    const formData = new FormData();
+    formData.append("message", message);
+
+    const response = await fetch("https://rezepte6.de/makemrv/log.php", {
+      method: "POST",
+      body: formData, 
+    });
+
+    if (response.ok) {
+      console.log("Send!", message);
+    } else {
+      console.error("Error!", response.statusText);
+    }
+
+  } catch (error) {
+    console.error("Cant sent", error);
+  }
+}
+
 export const saveRecipeAsFile = (values: Recipe) => {
   const data = prepareRecipeToSave(values);
   const blob = new Blob([data], { type: 'application/json' });
