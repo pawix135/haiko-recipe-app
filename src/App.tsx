@@ -16,6 +16,8 @@ import { useLocalStorage } from './hooks/useLocalStorage'
 import { RecipeQRCode } from './components/RecipeQRCode'
 import { ImportRecipe } from './components/ImportRecipe'
 import { MoreInformationsFields } from './components/MoreInformationsFields'
+import { logToServer } from "./lib/utils";
+
 
 function App() {
 
@@ -31,6 +33,8 @@ function App() {
 
   const onSubmit = (values: Recipe) => {
     saveRecipeAsFile(values);
+    const logMessage = `created: ${values.infos?.name || "no name"}`;
+    logToServer(logMessage);
   }
 
   const openInApp = (values: Recipe) => {
@@ -62,6 +66,9 @@ function App() {
   const onChange = () => {
     setStorage(formData);
   };
+
+
+
 
   // FIXME: THIS IS A BAD WAY TO CALCULATE THE SIZE OF THE OBJECT, THIS THROWS! DANG!
   const recipeObjectSize = JSON.stringify(formData, null, 0).length;
