@@ -19,7 +19,7 @@ Further possible functions/Options:
         Gesamtzeit is the sum of the 3 above
    
 
-2.  Image Galery
+2.  Image Galery : Done!
 
 3.  Create multiple recipes and queue them to download them together
 
