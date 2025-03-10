@@ -17,6 +17,7 @@ import { RecipeQRCode } from './components/RecipeQRCode'
 import { ImportRecipe } from './components/ImportRecipe'
 import { MoreInformationsFields } from './components/MoreInformationsFields'
 import { logToServer } from "./lib/utils";
+import ImageGallery from './components/ImageGallery'
 
 
 function App() {
@@ -71,9 +72,6 @@ function App() {
     setStorage(formData);
   };
 
-
-
-
   // FIXME: THIS IS A BAD WAY TO CALCULATE THE SIZE OF THE OBJECT, THIS THROWS! DANG!
   const recipeObjectSize = JSON.stringify(formData, null, 0).length;
 
@@ -82,6 +80,7 @@ function App() {
       <FormProvider {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} onChange={onChange} className="space-y-5">
           <RecipeInfos />
+          <ImageGallery />
           <VegField />
           <FormItem>
             <FormLabel htmlFor={"add_ingredient"}>{INGREDIENTS_LABEL}</FormLabel>
@@ -106,9 +105,9 @@ function App() {
             {recipeObjectSize < 1500 && <Button variant={"heiko"} type="button" onClick={() => form.handleSubmit(createQRCode)()}>{QR_CODE_BUTTON_TEXT}</Button>}
             <Button type="button" className='md:ml-auto bg-gray-500' onClick={resetForm}>{FORM_RESET_BUTTON}</Button>
           </div>
-           <ImportRecipe />
+          <ImportRecipe />
         </form>
-     </FormProvider>
+      </FormProvider>
       <RecipeQRCode qrCode={qrCode} setQrCode={setQrCode} />
     </div>
   )

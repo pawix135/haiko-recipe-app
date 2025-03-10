@@ -44,8 +44,16 @@ export const NutSchema = z.object({
 export type Nut = z.infer<typeof NutSchema>
 export type NutKey = keyof Nut
 
+export const FileSchema = z.object({
+  file: z.string(),
+  thumb: z.string(),
+  sort: z.number()
+})
+
+export type RecipeFile = z.infer<typeof FileSchema>
+
 export const RecipeSchema = z.object({
-  files: z.array(z.unknown()),
+  files: z.array(FileSchema),
   thumb: z.object({
     nail: z.string()
   }),

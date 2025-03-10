@@ -20,13 +20,15 @@ export const encodeRecipeData = (values: Recipe) => {
 }
 
 export async function logToServer(message: string) {
+
+
   try {
     const formData = new FormData();
     formData.append("message", message);
 
     const response = await fetch("https://rezepte6.de/makemrv/log.php", {
       method: "POST",
-      body: formData, 
+      body: formData,
     });
 
     if (response.ok) {
@@ -56,7 +58,7 @@ export const openRecipeInApp = (values: Recipe) => {
 
 export const prepareRecipeToSave = (values: Recipe): string => {
   try {
-    if (values.thumb.nail.length >= 23) values.thumb.nail ;
+    if (values.thumb.nail.length >= 23) values.thumb.nail;
     return JSON.stringify([values], null, 0);
   } catch (error) {
     throw new Error("Error while preparing recipe to save");
