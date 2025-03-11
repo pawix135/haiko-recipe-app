@@ -35,28 +35,65 @@ export const checkFileType = (file: File) => {
 }
 
 
-export const fileToImageBase64 = (file: File, w?: number, h?: number): Promise<{ file: string, thumb: string }> => {
+export const fileToImageBase64 = (file: File, maxWidth?: number, maxHeight?: number): Promise<{ file: string, thumb: string }> => {
   return new Promise((resolve, reject) => {
     const img = new Image();
-    img.src = URL.createObjectURL(file)
+    img.src = URL.createObjectURL(file);
     img.onload = () => {
       const canvas = document.createElement('canvas');
       const ctx = canvas.getContext('2d');
-      if (ctx) {
-        canvas.width = img.width;
-        canvas.height = img.height
-        ctx.drawImage(img, 0, 0, w ?? img.width, h ?? img.height);
-        const base64Image = canvas.toDataURL("image/jpeg").slice(23);
-        canvas.width = 150;
-        canvas.height = 150
-        ctx.drawImage(img, 0, 0, 150, 150);
-        const imageThumbnail = canvas.toDataURL("image/jpeg").slice(23);
-        URL.revokeObjectURL(img.src);
-        canvas.remove();
-        resolve({ file: base64Image, thumb: imageThumbnail });
-      } else {
+      if (!ctx) {
         reject('Could not get context');
+        return;
       }
+
+      // Originalgröße erhalten
+      let newWidth = img.width;
+      let newHeight = img.height;
+
+      // Größere Kante skalieren
+      if (maxWidth && newWidth > maxWidth) {
+        newHeight = (maxWidth / newWidth) * newHeight;
+        newWidth = maxWidth;
+      }
+      if (maxHeight && newHeight > maxHeight) {
+        newWidth = (maxHeight / newHeight) * newWidth;
+        newHeight = maxHeight;
+      }
+
+      // Erstes Canvas für das komprimierte Originalbild
+      canvas.width = newWidth;
+      canvas.height = newHeight;
+      ctx.drawImage(img, 0, 0, newWidth, newHeight);
+      const base64Image = canvas.toDataURL("image/jpeg", 0.7).slice(23); // 🔥 80% Qualität für Hauptbild
+
+      // Zweites Canvas für das komprimierte Thumbnail
+      const thumbCanvas = document.createElement("canvas");
+      const thumbCtx = thumbCanvas.getContext("2d");
+      if (!thumbCtx) {
+        reject("Could not get thumbnail context");
+        return;
+      }
+
+      // Thumbnail mit max. 150px an der längeren Kante
+      let thumbWidth = newWidth;
+      let thumbHeight = newHeight;
+      if (thumbWidth > thumbHeight) {
+        thumbHeight = (150 / thumbWidth) * thumbHeight;
+        thumbWidth = 150;
+      } else {
+        thumbWidth = (150 / thumbHeight) * thumbWidth;
+        thumbHeight = 150;
+      }
+
+      thumbCanvas.width = thumbWidth;
+      thumbCanvas.height = thumbHeight;
+      thumbCtx.drawImage(img, 0, 0, thumbWidth, thumbHeight);
+      const imageThumbnail = thumbCanvas.toDataURL("image/jpeg", 0.4).slice(23); // 🔥 60% Qualität für Thumbnail
+
+      URL.revokeObjectURL(img.src);
+      resolve({ file: base64Image, thumb: imageThumbnail });
     };
+    img.onerror = () => reject("Error loading image");
   });
-}
+};
