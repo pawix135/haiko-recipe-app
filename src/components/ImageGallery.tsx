@@ -62,13 +62,13 @@ export const ImageGallery: React.FC = () => {
       <div className="space-y-2">
         <Label htmlFor="gallery_field">
           {IMAGE_GALLERY_LABEL}
-          <span className="font-normal text-xs">Drag and drop image</span>
+          <span className="font-normal text-xs">(Du kannst Drag and Drop verwenden zum sortieren.)</span>
         </Label>
         <Input ref={importImageInputRef} id="gallery_field" type="file" multiple accept="image/*" onChange={handleFileChange} className="hidden" />
         {/* <input {...getInputProps()} /> */}
       </div>
       <Carousel className="h-[150px] w-full">
-        <CarouselContent         {...getRootProps()} className="relative ml-4 py-2 border border-accent">
+        <CarouselContent         {...getRootProps()} className="relative ml-1 py-2">
           {fields.map((field, index) => (
             <CarouselItem key={field.id} className="pl-0 mr-2 relative md:basis-[150px] ">
               <div className="!w-full">
@@ -89,7 +89,7 @@ export const ImageGallery: React.FC = () => {
             </CarouselItem>
           ))}
           <CarouselItem>
-            <Button type="button" className="size-[150px] z-30" variant={"outline"} onClick={openImportGallery}>
+            <Button type="button" className="size-[150px] z-20" variant={"outline"} onClick={openImportGallery}>
               <Plus />
             </Button>
           </CarouselItem>
