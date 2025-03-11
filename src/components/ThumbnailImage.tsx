@@ -10,8 +10,8 @@ export const ThumbnailImage: React.FC = () => {
   const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
 
     try {
-      const data = await handleImageFileInput(e);
-      if (data.length > 0) form.setValue("thumb.nail", data[0].file);
+      const data = await handleImageFileInput(e.currentTarget.files);
+      if (data.length > 0) form.setValue("thumb.nail", data[0].thumb);
     } catch (error) {
       console.error('Error while handling image file input', error);
     }
