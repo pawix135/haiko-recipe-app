@@ -40,4 +40,4 @@ export const VEG_FIELD_VEGAN_LABEL = "Vegan"
 export const VEG_FIELD_VEGETARIAN_LABEL = "Vegetarisch"
 
 //ImageGallery
-export const IMAGE_GALLERY_LABEL = "Gallery"
+export const IMAGE_GALLERY_LABEL = "Bilder hinzufügen"
