@@ -1,10 +1,16 @@
-const ACCEPTED_FILE_TYPES = ["jpeg", "png", "jpg"];
+export const ACCEPTED_IMAGES_TYPES = ["jpeg", "png", "jpg"];
 
 type ImageFile = { file: string, thumb: string };
 
-export const handleImageFileInput = async (e: React.ChangeEvent<HTMLInputElement>): Promise<ImageFile[]> => {
+export const handleImageFileInput = async (files: File[] | FileList | null, w?: number, h?: number): Promise<ImageFile[]> => {
 
-  const rawFiles = e.target.files;
+  let rawFiles: File[] = []
+
+  if (files instanceof FileList) {
+    rawFiles = Array.from(files);
+  } else {
+    rawFiles = files || [];
+  }
 
   if (!rawFiles || rawFiles.length < 1) return [];
 
@@ -13,19 +19,23 @@ export const handleImageFileInput = async (e: React.ChangeEvent<HTMLInputElement
   if (filteredFiles.length < 1) return [];
 
   const datas = await Promise.all(filteredFiles.map((file) => {
-    return fileToImageBase64(file);
+    return fileToImageBase64(file, w, h);
   }))
 
   return datas;
 }
 
+export const handleFiles = () => {
+
+}
+
 export const checkFileType = (file: File) => {
   const splitFileName = file.name.split('.');
-  return ACCEPTED_FILE_TYPES.includes(splitFileName[splitFileName.length - 1]);
+  return ACCEPTED_IMAGES_TYPES.includes(splitFileName[splitFileName.length - 1]);
 }
 
 
-export const fileToImageBase64 = (file: File): Promise<{ file: string, thumb: string }> => {
+export const fileToImageBase64 = (file: File, w?: number, h?: number): Promise<{ file: string, thumb: string }> => {
   return new Promise((resolve, reject) => {
     const img = new Image();
     img.src = URL.createObjectURL(file)
@@ -35,7 +45,7 @@ export const fileToImageBase64 = (file: File): Promise<{ file: string, thumb: st
       if (ctx) {
         canvas.width = img.width;
         canvas.height = img.height
-        ctx.drawImage(img, 0, 0, img.width, img.height);
+        ctx.drawImage(img, 0, 0, w ?? img.width, h ?? img.height);
         const base64Image = canvas.toDataURL("image/jpeg").slice(23);
         canvas.width = 150;
         canvas.height = 150

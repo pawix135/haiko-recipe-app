@@ -17,8 +17,7 @@ Further possible functions/Options:
      rating:  0=no rating and  1 ... 5 corresponding to the starts
      ruhezeit / vorbereitungszeit / zubereitungszeit are minutes
         Gesamtzeit is the sum of the 3 above
-   
-
+        
 2.  Image Galery : Done!
 
 3.  Create multiple recipes and queue them to download them together

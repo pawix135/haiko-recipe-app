@@ -9,16 +9,14 @@ import { PreparationStepFieldArray } from './components/PreparationStepFieldArra
 import { useEffect, useState } from 'react'
 import { RecipeInfos } from './components/RecipeInfos'
 import { AllTextFields } from './components/AllTextFields'
-import { DOWNLOAD_RECIPE_BUTTON_TEXT, FORM_RESET_BUTTON, INGREDIENTS_LABEL, OPEN_IN_APP_BUTTON_TEXT, PREPARATION_STEP_LABEL, QR_CODE_BUTTON_TEXT } from './constants/text'
+import { DOWNLOAD_RECIPE_BUTTON_TEXT, FORM_RESET_BUTTON, INGREDIENTS_LABEL, OPEN_IN_APP_BUTTON_TEXT, PREPARATION_STEP_LABEL, QR_CODE_BUTTON_TEXT, RESET_FORM_CONFIRMATION } from './constants/text'
 import { VegField } from './components/VegField'
 import { NutritionDialog } from './components/NutritionDialog'
 import { useLocalStorage } from './hooks/useLocalStorage'
 import { RecipeQRCode } from './components/RecipeQRCode'
-import { ImportRecipe } from './components/ImportRecipe'
 import { MoreInformationsFields } from './components/MoreInformationsFields'
 import { logToServer } from "./lib/utils";
 import ImageGallery from './components/ImageGallery'
-
 
 function App() {
 
@@ -51,7 +49,7 @@ function App() {
   }
 
   const resetForm = () => {
-    const response = confirm("Sind Sie sicher, dass Sie das Formular zurücksetzen wollen?");
+    const response = confirm(RESET_FORM_CONFIRMATION);
 
     if (response) {
       form.reset(defaultRecipeValues)
@@ -80,7 +78,6 @@ function App() {
       <FormProvider {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} onChange={onChange} className="space-y-5">
           <RecipeInfos />
-          <ImageGallery />
           <VegField />
           <FormItem>
             <FormLabel htmlFor={"add_ingredient"}>{INGREDIENTS_LABEL}</FormLabel>
@@ -98,6 +95,7 @@ function App() {
             <NutritionDialog />
             <MoreInformationsFields />
           </div>
+          <ImageGallery />
           <AllTextFields />
           <div className='flex flex-row flex-wrap space-x-2 space-y-2'>
             <Button variant={"heiko"} type="submit">{DOWNLOAD_RECIPE_BUTTON_TEXT}</Button>
@@ -105,7 +103,6 @@ function App() {
             {recipeObjectSize < 1500 && <Button variant={"heiko"} type="button" onClick={() => form.handleSubmit(createQRCode)()}>{QR_CODE_BUTTON_TEXT}</Button>}
             <Button type="button" className='md:ml-auto bg-gray-500' onClick={resetForm}>{FORM_RESET_BUTTON}</Button>
           </div>
-          <ImportRecipe />
         </form>
       </FormProvider>
       <RecipeQRCode qrCode={qrCode} setQrCode={setQrCode} />

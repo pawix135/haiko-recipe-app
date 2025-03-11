@@ -21,7 +21,7 @@ import { ThumbnailImage } from "./ThumbnailImage";
 import { Trash } from "lucide-react";
 import { Button } from "./ui/button";
 
-interface Props {}
+interface Props { }
 
 export const RecipeInfos: React.FC<Props> = () => {
   const { control, register, ...form } = useFormContext<Recipe>();
@@ -62,7 +62,7 @@ export const RecipeInfos: React.FC<Props> = () => {
         )}
         <ThumbnailImage />
       </div>
-      <div className="w-full h-full space-y-2 flex flex-col justify-between">
+      <div className="size-full space-y-2 flex flex-col justify-between">
         <FormField
           control={control}
           name="infos.name"
@@ -82,7 +82,7 @@ export const RecipeInfos: React.FC<Props> = () => {
             control={control}
             name="infos.pieces"
             render={({ field }) => (
-              <FormItem className="w-half">
+              <FormItem className="w-1/2">
                 <FormLabel>
                   {RECIPE_INFOS_AMOUNT_LABEL}* <FormMessage />
                 </FormLabel>

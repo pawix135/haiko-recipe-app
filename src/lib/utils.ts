@@ -21,6 +21,10 @@ export const encodeRecipeData = (values: Recipe) => {
 
 export async function logToServer(message: string) {
 
+  if (process.env.NODE_ENV === "development") {
+    console.log("Log to server", message);
+    return;
+  }
 
   try {
     const formData = new FormData();
