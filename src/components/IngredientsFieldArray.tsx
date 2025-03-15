@@ -43,6 +43,7 @@ export const IngredientsFieldArray: React.FC<Props> = () => {
                   )}
                 />
               </Label>
+               
               {watchedFields[index] && !watchedFields[index].headline && (
                 <Input id={`zutaten.${index}.menge`} step={0.1} className="w-1/7" type="number" placeholder={INGREDIENT_INPUT_MENGE_PLACEHOLDER} {...register(`zutaten.${index}.menge`, { valueAsNumber: true })} />
               )}
@@ -56,6 +57,9 @@ export const IngredientsFieldArray: React.FC<Props> = () => {
                 <Trash />
               </Button>
             </div>
+            {watchedFields[index]?.headline && (
+             <div className="w-4/5 h-[1px] bg-black mt-2 ml-auto"></div>
+           )}
           </div>
         )))}
       <Button id="add_ingredient" className="w-1/4"  variant={"heiko"} type="button" onClick={() => {
