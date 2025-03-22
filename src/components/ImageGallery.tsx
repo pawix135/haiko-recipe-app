@@ -8,20 +8,24 @@ import { Button } from "./ui/button";
 import { MoveLeft, MoveRight, Plus, Trash } from "lucide-react";
 import { IMAGE_GALLERY_LABEL } from "@/constants/text";
 import { useDropzone } from 'react-dropzone'
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
 export const ImageGallery: React.FC = () => {
 
   const form = useFormContext<Recipe>();
   const importImageInputRef = useRef<HTMLInputElement>(null);
-  const { fields, append, remove, swap } = useFieldArray({
+
+  const { fields, append, remove, swap, update } = useFieldArray({
     control: form.control,
     name: "files",
   })
 
+  console.log(fields);
+
+
   const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const data = await handleImageFileInput(e.currentTarget.files, undefined, 1200);
-    const newFields = data.map((file, i) => ({ file: file.file, thumb: file.thumb, sort: i }))
+    const newFields = data.map((file, i) => ({ file: file.file, thumb: file.thumb, sort: fields.length + i }))
     append(newFields)
 
   }
@@ -36,20 +40,41 @@ export const ImageGallery: React.FC = () => {
 
   const moveImage = (index: number, direction: "left" | "right") => {
     if (direction === "left") {
+
+      // swap(index, index - 1);
+      const a = fields[index];
+      const b = fields[index - 1];
+      const sortA = a.sort;
+
+      a.sort = b.sort;
+      b.sort = sortA;
+
+      update(index, a);
+      update(index - 1, b);
       swap(index, index - 1);
+
+
     } else {
+      // swap(index, index + 1);
+      const a = fields[index];
+      const b = fields[index + 1];
+      const sortA = a.sort;
+
+      a.sort = b.sort;
+      b.sort = sortA;
+
+      update(index, a);
+      update(index + 1, b);
       swap(index, index + 1);
     }
   }
 
   const onDrop = async (acceptedFiles: File[]) => {
     const newImages = await handleImageFileInput(acceptedFiles);
-    console.log(newImages);
 
-    const newFields = newImages.map((file, i) => ({ file: file.file, thumb: file.thumb, sort: i }))
+    const newFields = newImages.map((file, i) => ({ file: file.file, thumb: file.thumb, sort: fields.length + i }))
     append(newFields)
   };
-
 
   const { getRootProps } = useDropzone({
     onDrop,
@@ -65,7 +90,6 @@ export const ImageGallery: React.FC = () => {
           <span className="font-normal text-xs">(Du kannst Drag and Drop verwenden zum sortieren.)</span>
         </Label>
         <Input ref={importImageInputRef} id="gallery_field" type="file" multiple accept="image/*" onChange={handleFileChange} className="hidden" />
-        {/* <input {...getInputProps()} /> */}
       </div>
       <Carousel className="h-[150px] w-full">
         <CarouselContent         {...getRootProps()} className="relative ml-1 py-2">

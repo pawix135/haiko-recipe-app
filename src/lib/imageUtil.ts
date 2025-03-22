@@ -65,7 +65,7 @@ export const fileToImageBase64 = (file: File, maxWidth?: number, maxHeight?: num
       canvas.width = newWidth;
       canvas.height = newHeight;
       ctx.drawImage(img, 0, 0, newWidth, newHeight);
-      const base64Image = canvas.toDataURL("image/jpeg", 0.7).slice(23); // 🔥 80% Qualität für Hauptbild
+      const base64Image = canvas.toDataURL("image/jpeg").slice(23); // 🔥 80% Qualität für Hauptbild
 
       // Zweites Canvas für das komprimierte Thumbnail
       const thumbCanvas = document.createElement("canvas");
@@ -89,7 +89,7 @@ export const fileToImageBase64 = (file: File, maxWidth?: number, maxHeight?: num
       thumbCanvas.width = thumbWidth;
       thumbCanvas.height = thumbHeight;
       thumbCtx.drawImage(img, 0, 0, thumbWidth, thumbHeight);
-      const imageThumbnail = thumbCanvas.toDataURL("image/jpeg", 0.4).slice(23); // 🔥 60% Qualität für Thumbnail
+      const imageThumbnail = thumbCanvas.toDataURL("image/jpeg").slice(23); // 🔥 60% Qualität für Thumbnail
 
       URL.revokeObjectURL(img.src);
       resolve({ file: base64Image, thumb: imageThumbnail });
