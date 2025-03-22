@@ -20,9 +20,6 @@ export const ImageGallery: React.FC = () => {
     name: "files",
   })
 
-  console.log(fields);
-
-
   const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const data = await handleImageFileInput(e.currentTarget.files, undefined, 1200);
     const newFields = data.map((file, i) => ({ file: file.file, thumb: file.thumb, sort: fields.length + i }))
@@ -41,7 +38,6 @@ export const ImageGallery: React.FC = () => {
   const moveImage = (index: number, direction: "left" | "right") => {
     if (direction === "left") {
 
-      // swap(index, index - 1);
       const a = fields[index];
       const b = fields[index - 1];
       const sortA = a.sort;
@@ -55,7 +51,6 @@ export const ImageGallery: React.FC = () => {
 
 
     } else {
-      // swap(index, index + 1);
       const a = fields[index];
       const b = fields[index + 1];
       const sortA = a.sort;
