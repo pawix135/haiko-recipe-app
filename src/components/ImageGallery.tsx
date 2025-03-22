@@ -8,7 +8,7 @@ import { Button } from "./ui/button";
 import { MoveLeft, MoveRight, Plus, Trash } from "lucide-react";
 import { IMAGE_GALLERY_LABEL } from "@/constants/text";
 import { useDropzone } from 'react-dropzone'
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 
 export const ImageGallery: React.FC = () => {
 
