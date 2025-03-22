@@ -87,7 +87,7 @@ export const ImageGallery: React.FC = () => {
       <div className="space-y-2">
         <Label htmlFor="gallery_field">
           {IMAGE_GALLERY_LABEL}
-          <span className="font-normal text-xs">(Du kannst Drag and Drop verwenden zum sortieren.)</span>
+          <span className="font-normal text-xs">(Du kannst Drag und Drop verwenden um Bilder hinzuzufügen.)</span>
         </Label>
         <Input ref={importImageInputRef} id="gallery_field" type="file" multiple accept="image/*" onChange={handleFileChange} className="hidden" />
       </div>
